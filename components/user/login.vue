@@ -1,10 +1,10 @@
 <template>
     <v-card class="cardLogin">
-        <v-card-title class="title">Me parecio ver un lindo gatito </v-card-title>
+        <v-card-title class="title">Welcome to SpongeBob World 😋</v-card-title>
         <v-card-text>
             <v-row justify="center" align="center">
                 <v-col cols="4" align-self="center">
-                    <img src="../../assets/img/piolin.jpg" alt="" class="imgLogin">
+                    <img src="../../assets/img/descarga-_1_.jpg" alt="" class="imgLogin">
                 </v-col>
                 <v-col cols="8" align-self="center">
             
@@ -61,7 +61,7 @@ import { async } from 'q'
                         console.log('error: ', error)
                     })
                 }else{
-                    alert('No cumpliste las reglas, come plomo lindo gatito')
+                    alert('No cumpliste las reglas, Repitelo de nuevo')
                 }
                 
             }
@@ -71,7 +71,7 @@ import { async } from 'q'
 
 <style scoped>
     .cardLogin{
-        background-color:#F9A825;
+        background-color: gray;
         border-radius: 10px;
         width: 500px;
         height: 300px;
@@ -84,15 +84,15 @@ import { async } from 'q'
     }
 
     .btnLogin{
-        background-color: rgb(104, 211, 104) !important;
-        color: black;
+        background-color: black !important;
+        color: white;
         
     }
 
     .title{
         font-size: 30px;
         justify-content: center;
-        color: maroon;
+        color: White;
         font-weight: 700;
     }
 </style>

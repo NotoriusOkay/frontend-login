@@ -9,7 +9,7 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
-            AFMC
+            EMME
           </v-list-item-title>
           <v-list-item-subtitle>
             Sistema
