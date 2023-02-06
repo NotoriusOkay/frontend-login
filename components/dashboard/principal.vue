@@ -119,7 +119,7 @@
                         'Access-Control-Allow-Origin': '*'
                     }
                 }
-                await this.$axios.get('/getallusers', config)
+                await this.$axios.get('user/getallusers', config)
                     .then((res) => {
                         console.log('res',res)
                         if(res.data.message === 'Usuarios'){
@@ -146,7 +146,7 @@
                     email: this.email,
                     password: this.password
                 }
-                await this.$axios.post('/register', usuarioNuevo, config)
+                await this.$axios.post('user/register', usuarioNuevo, config)
                     .then((res) =>{
                         console.log('res',res)
                         if(res.data.error === null){
@@ -160,7 +160,7 @@
             },
             async eraseUser(item){
               console.log(item)
-              if(item.name !== 'adminangel'){
+              if(item.name !== 'AdminErick'){
                 const config = {
                     headers: {
                         'Content-Type': 'application/json;charset=UTF-8',
@@ -170,7 +170,7 @@
                 const usuario = {
                     id: item._id
                 }
-                await this.$axios.post('/eraseusers', usuario, config)
+                await this.$axios.post('/user/eraseusers', usuario, config)
                     .then((res) => {
                         console.log(res)
                         if(res.data.message === 'Usuario borrado'){
