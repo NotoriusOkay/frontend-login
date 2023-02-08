@@ -16,7 +16,7 @@
                 </v-btn>
               </v-col>
               <v-col cols="6">
-                <v-btn icon color="red" @click="eraseUser(item)">
+                <v-btn icon color="red" @click="dialogUser(item)">
                   <v-icon>mdi-eraser</v-icon>
                 </v-btn>
               </v-col>
@@ -58,6 +58,21 @@
                         </v-btn>
                     </v-row>
 
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+        <v-dialog v-model="openDialogErase" width="500" height="500" persistent>
+            <v-card>
+                <v-card-title>Borrar Usuario</v-card-title>
+                <v-car-text>Realmente lo quieres borrar?</v-car-text>
+                <v-card-actions>
+                    <v-btn color="green" @click="openDialogErase = false">
+                        Cancelar
+                    </v-btn>
+                    <v-spacer></v-spacer>
+                    <v-btn color="red" @click="eraseUser">
+                        Borrar
+                    </v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -104,8 +119,10 @@
                 name:'',
                 lastname: '',
                 email: '',
-                password: ''
-
+                password: '',
+                idEraserUser: '',
+                openDialogErase: false,
+                admin: 'AdminErick'
             }
         },
         mounted() {
@@ -158,9 +175,8 @@
                         console.log('error', error)
                     })
             },
-            async eraseUser(item){
-              console.log(item)
-              if(item.name !== 'AdminErick'){
+            async eraseUser(){
+              if(this.admin !== 'AdminErick'){
                 const config = {
                     headers: {
                         'Content-Type': 'application/json;charset=UTF-8',
@@ -168,13 +184,14 @@
                     }
                 }
                 const usuario = {
-                    id: item._id
+                    id: this.idEraserUser
                 }
                 await this.$axios.post('/user/eraseusers', usuario, config)
                     .then((res) => {
                         console.log(res)
                         if(res.data.message === 'Usuario borrado'){
                             this.loadUsers()
+                            this.openDialogErase = false
                         }
                     })
                     .catch((error) => {
@@ -182,6 +199,11 @@
                     })
               }
               
+            },
+            dialogUser( item ) {
+                this.idEraserUser = item._id
+                this.admin = item.name
+                this.openDialogErase = true
             }
         }
     }
