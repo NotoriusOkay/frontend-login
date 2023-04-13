@@ -1,10 +1,10 @@
 <template>
     <v-card class="cardLogin">
-        <v-card-title class="title">Welcome to SpongeBob World 😋</v-card-title>
+        <v-card-title class="title">Bienvenid@ a InterUTS!!!</v-card-title>
         <v-card-text>
             <v-row justify="center" align="center">
                 <v-col cols="4" align-self="center">
-                    <img src="../../assets/img/descarga-_1_.jpg" alt="" class="imgLogin">
+                    <img src="../../assets/img/339548505_941864887263402_5515169500317850906_n.jpg" alt="" class="imgLogin">
                 </v-col>
                 <v-col cols="8" align-self="center">
             
@@ -24,6 +24,8 @@
     </v-card>
 </template>
 
+
+
 <script>
 import { async } from 'q'
 
@@ -32,11 +34,11 @@ import { async } from 'q'
             return{
                 correoElectronico: '',
                 validarCorreo:[
-                    v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+                    v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'El correo electronico debe de ser válido'
                 ],
                 password: '',
                 validarPassword:[
-                    value => value.length >= 6 || 'Minimo 6 caracteres'
+                    value => value.length >= 6 || 'La contraseña tiene que tener minimo 6 caracteres'
                     ]
                 }
                 
@@ -82,6 +84,7 @@ import { async } from 'q'
         border-radius: 10px;
 
     }
+
 
     .btnLogin{
         background-color: black !important;
